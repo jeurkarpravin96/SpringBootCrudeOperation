@@ -1,31 +1,46 @@
 pipeline {
-    agent any
+  agent any
+	tools {
+		maven 'maven-3.6.3' 
+	  }
+	stages {
+		stage ('Build') {
+		  steps {
+			bat 'mvn clean package'
+		  }
+		}
+		stage ('Deploy') {
+		  steps {
+			script {
+			  deploy adapters: [tomcat9(credentialsId: 'tomcat_credential', path: '', url: 'http://localhost:8080/')], contextPath: '/pipeline', onFailure: false, war: 'webapp/target/*.war' 
+			}
+		  }
+		}
+	  }
 
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
-            }
-        }
-        stage('Build') {
-            steps {
-                echo 'Building'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing'
-            }
-        }
-        stage('Release') {
-            steps {
-                echo 'Releasing'
-            }
-        }
-    }
+	post {
+		// If Maven was able to run the tests, even if some of the test
+		// failed, record the test results and archive the jar file.
+		success {
+			junit '**/target/surefire-reports/TEST-*.xml'
+			archiveArtifacts 'target/*.jar'
+			emailext body: '''Hi Dear,
+			
+			Your job got Success.
+			Kindly check and fix it.
+			
+			Regards
+			Jenkins''',subject: 'Success | Jenkins-pipeline-git-hub-jar-artifact', to: 'jeurkarpravin96@gmail.com'
+
+		}
+		failure {
+			emailext body: '''Hi Dear,
+			
+			Your job got failed.
+			Kindly check and fix it.
+			
+			Regards
+			Jenkins''',subject: 'Failure | Jenkins-pipeline-git-hub-jar-artifact', to: 'jeurkarpravin96@gmail.com'
+		}
+	}
 }
