@@ -22,24 +22,24 @@ pipeline {
 		// failed, record the test results and archive the jar file.
 		success {
 			junit '**/target/surefire-reports/TEST-*.xml'
-			archiveArtifacts 'target/*.jar'
-			emailext body: '''Hi Dear,
+			archiveArtifacts 'target/*.war'
+			//emailext body: '''Hi Dear,
 			
-			Your job got Success.
-			Kindly check and fix it.
+			//Your job got Success.
+			//Kindly check and fix it.
 			
-			Regards
-			Jenkins''',subject: 'Success | Jenkins-pipeline-git-hub-jar-artifact', to: 'jeurkarpravin96@gmail.com'
+			//Regards
+			//Jenkins''',subject: 'Success | Jenkins-pipeline-git-hub-jar-artifact', to: 'jeurkarpravin96@gmail.com'
 
 		}
-		failure {
-			emailext body: '''Hi Dear,
-			
-			Your job got failed.
-			Kindly check and fix it.
-			
-			Regards
-			Jenkins''',subject: 'Failure | Jenkins-pipeline-git-hub-jar-artifact', to: 'jeurkarpravin96@gmail.com'
-		}
+		//failure {
+		//	emailext body: '''Hi Dear,
+		//	
+		//	Your job got failed.
+		//	Kindly check and fix it.
+		//	
+		//	Regards
+		//	Jenkins''',subject: 'Failure | Jenkins-pipeline-git-hub-jar-artifact', to: 'jeurkarpravin96@gmail.com'
+		//}
 	}
 }
