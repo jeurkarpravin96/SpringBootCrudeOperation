@@ -4,7 +4,7 @@ pipeline {
 	stages {
 		stage ('Build') {
 		  steps {
-		    cd crudeDemo
+		    bat "cd crudeDemo"
 			bat "mvn -Dmaven.test.failure.ignore=true clean package"
 		  }
 		}
