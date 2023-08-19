@@ -1,0 +1,7 @@
+2023-08-12 13:17:54,634 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-08-12 13:18:16,101 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: com:crudeDemo:0.0.1-SNAPSHOT @ C:\Users\Lenovo\Desktop\JAVA\SpringBootCrudeOperation\crudeDemo\pom.xml.
+2023-08-12 13:18:17,808 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /crudeDemo/src/main/java
+2023-08-12 13:18:17,809 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /crudeDemo/src/main/resources
+2023-08-12 13:18:17,831 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /crudeDemo/src/main/resources
+2023-08-12 13:18:17,851 [Worker-2: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /crudeDemo/src/test/java
+2023-08-12 13:18:21,893 [Worker-2: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 7 sec
