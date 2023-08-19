@@ -28,7 +28,7 @@ public class StudentCntr {
 	
 	@GetMapping(value="welcome")
 	public String getWelcome() {
-		return "Project has been running";
+		return "Project has been running     ";
 	}
 	
 	@PostMapping(path="addStudent")
